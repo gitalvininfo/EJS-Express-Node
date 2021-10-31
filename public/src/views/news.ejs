@@ -13,13 +13,16 @@
 <body>
     <header class="header">
         <div class="header__logo">Node.Js News</div>
-        <div class="header__search">Search</div>
+        <%- include('./partials/search.ejs') %>
+
     </header>
 
     <div class="wrapper">
         <div class="news">
+            <% if(articles != null) {%>
             <% articles.forEach(function(article, index) { %>
-                <a href="#" class="news__card">
+                <a href="/article/<%- article.id %>" class="news__card">
+                    <img src="<%- article.thumbnail_url %>" alt="<%- article.excerpt.rendered %>">
                     <h2>
                         <%- article.title.rendered %>
                     </h2>
@@ -28,6 +31,10 @@
                     </p>
                 </a>
                 <% }) %>
+
+                <% } else { %> 
+                    No posts found.
+                    <% } %>
         </div>
     </div>
 
