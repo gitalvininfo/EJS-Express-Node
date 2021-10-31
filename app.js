@@ -12,12 +12,12 @@ app.use('/js', express.static(__dirname + 'public/js'))
 
 
 // Templating engine
-app.set('views', './src/views')
+app.set('views', './public/src/views/partials')
 app.set('view engine', 'ejs')
 
 
 // Routes
-const newsRouter = require('./src/routes/news');
+const newsRouter = require('./public/src/routes/news');
 app.use('/', newsRouter);
 
 
